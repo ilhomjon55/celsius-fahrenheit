@@ -8,10 +8,14 @@ var celsiusToFahrenheit = function (inputCelsius) {
 elFormTemperature.addEventListener('submit', function (evt) {
   evt.preventDefault();
 
+
   var elInputCelsius = elFormTemperature.querySelector('.celsius-input');
   elInputCelsius = parseFloat(elInputCelsius.value.trim(), 10);
 
   var elResultFahrenheit = elFormTemperature.querySelector('.fahrenheit-input');
-  elResultFahrenheit.textContent = celsiusToFahrenheit(elInputCelsius).toFixed(1);
-
+  if (isNaN(elInputCelsius)) {
+    elResultFahrenheit.textContent = `?`
+  } else {
+    elResultFahrenheit.textContent = celsiusToFahrenheit(elInputCelsius).toFixed(1);
+  }
 });
