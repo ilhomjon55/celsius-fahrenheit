@@ -4,8 +4,7 @@ var elFormTemperature = document.querySelector('.form-temperature');
 var celsiusToFahrenheit = function (inputCelsius) {
   return (inputCelsius * 9 / 5) + 32;
 }
-
-elFormTemperature.addEventListener('submit', function (evt) {
+var celsiusToFahreheitConvert = function (evt) {
   evt.preventDefault();
 
 
@@ -18,4 +17,6 @@ elFormTemperature.addEventListener('submit', function (evt) {
   } else {
     elResultFahrenheit.textContent = celsiusToFahrenheit(elInputCelsius).toFixed(1);
   }
-});
+};
+elFormTemperature.addEventListener('submit', celsiusToFahreheitConvert);
+elFormTemperature.addEventListener('input', celsiusToFahreheitConvert);
